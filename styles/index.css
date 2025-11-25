@@ -1,0 +1,240 @@
+/* source for typing animation: https://css-tricks.com/snippets/css/typewriter-effect/ */
+
+/* Google Fonts */
+
+/* note: I have been informed by Josh as there is no point in a display none h1, because screenreaders and SEO cannot pick it up, and that single pixel headers are obsolete in new SEO paradigms, that it is better to have no h1 at all rather than a hidden or mostly concealed h1.  */
+/* h1{
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+} */
+
+:root{
+   --black:#000000;
+   --ball: #143C6D;
+   --focus:yellow;
+   --valid:green;
+   --invalid:red;
+}
+ 
+body {
+  /* background: #333; */
+  border: none;
+  padding-top: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto Slab", serif;
+  height: 100%;
+  margin: 0;
+  background:
+    linear-gradient(to bottom, #ffbd98 40%, #f9341b 100%);
+}
+
+ 
+h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  margin: 1.5rem 0;
+  position: relative; /* needed for pseudo-element positioning */
+}
+
+/* Short line before the ball */
+h3::before {
+  content: "";
+  width: 1rem;                  /* length of the short line */
+  height: 2px;
+  background-color: var(--black);
+  margin-right: 0.5rem;         /* space before the ball */
+  flex-shrink: 0;
+  font-weight: bolder;
+}
+
+/* Numbered ball */
+h3 span.ball {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--ball);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+/* Long line after the ball */
+h3::after {
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--black);
+  margin-left: 1rem;
+}
+
+.formBox{
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0.6rem 1rem 1rem rgba(0, 0, 0, 0.8);
+  margin-bottom: 5rem;
+  
+}
+
+.formBox h2 {
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  color: var(--ball);
+  font-weight: 600;
+  font-size: 2em;
+  text-shadow: 1px 2px 4px #888;
+  margin-bottom: 1.8em;
+}
+
+.formBox legend {
+  font-size: 1.2em;
+  font-weight: bolder;
+  margin-bottom: 0.3em;
+}
+
+.accountInfoField input {
+  font-size: 18px;
+  padding: 12px 16px;
+  background-color: #ededed;
+  border: none;
+}
+/* summoned by clanker gods for Account Info labels */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* .formBox select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  color: #888;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 0.3em;
+} */
+
+.accountInfoField{
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: column;
+}
+
+.formBox input::placeholder,
+.formBox textarea::placeholder {
+  color: #6f6f6f;
+}
+
+fieldset{
+  border: none;
+}
+
+fieldset.accountInfoField {
+  padding: 0;         /* optional: remove default padding */
+  margin: 0;          /* optional: align with other elements */
+}
+
+.passwordRequirements{
+  font-style: italic;
+  margin:0;
+}
+
+.ds_chbx_SuperBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 20px;
+}
+
+.ds_chbx_SuperBox label {
+  display: flex;          
+  align-items: center;
+  gap: 5px;              
+  padding: 5px;
+  background: transparent;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.ds_radio_SuperBox{
+  display: flex;
+  justify-content: flex-start;   /* keep everything left-aligned */
+  align-items: center;
+  gap: 1.5rem;  
+  font-weight: 500;                 /* controls the spacing between each item */
+}
+
+#extraDetails{
+  display: none;
+}
+ 
+.other{
+  display: block;
+  margin-bottom: 0.4rem;
+  background-color: #ededed;
+}
+
+.bold{
+  font-weight: 500;
+}
+
+.otherSet select, .otherSet.label{
+  font-weight: 500;
+}
+
+#details{
+  background-color: #ededed;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--focus);
+}
+
+input:focus:valid,
+textarea:focus:valid,
+select:focus:valid {
+  outline: 3px solid var(--valid);
+}
+
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  outline: 3px solid var(--invalid);
+}
+
+footer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
+
+label[for="allComments"] {
+  font-weight: 700;
+}

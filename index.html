@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <header>
+        <!-- From what josh said, in a real website, this would be part of a larger page or a pop out window, both of which don't need an integral h1. -->
+        <!-- <h1>Form Page</h1> -->
+    </header>
+    <!-- form box -->
+      <form class="formBox" method="post" action="#">
+
+    
+
+        <!-- sign up header -->
+        <h2>Signup</h2>
+             <!-- text entry-->
+        <!-- account info header -->
+        <h3>  <span class="ball">1</span>Account Info</h3>
+            <fieldset class="accountInfoField">
+                <!-- <legend>Account Info</legend> -->
+                <input type="text" id="fullname" name="signup" placeholder="Full name..." autocomplete="name" required/>
+                <label for="fullname" class="visually-hidden">Full name</label>
+
+                <input type="email" id="email" name="signup" placeholder="Email Address..." autocomplete="email" required/>
+                <label for="email" class="visually-hidden">Email address</label>
+
+                <input
+                type="password"
+                id="password"
+                name="signup"
+                placeholder="Password..."
+                autocomplete="new-password"
+                required
+                minlength="12"
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{12,}"
+                required>
+
+                <label for="password" class="visually-hidden">Password</label>
+
+                <p class="passwordRequirements">Minimum 12 Characters.<br>Must include uppercase, lowercase, number and symbol.</p>
+                
+            </fieldset>
+        <!-- dev skills header -->
+        <h3>  <span class="ball">2</span>Dev Skills</h3>
+            <!-- core languages checkboxes -->
+            <fieldset >
+                <legend>Core Languages</legend>
+                <div class="ds_chbx_SuperBox">
+                    <label><input type="checkbox" name="languages[]" value="HTML"> HTML</label>
+                    <label><input type="checkbox" name="languages[]" value="CSS"> CSS</label>
+                    <label><input type="checkbox" name="languages[]" value="JavaScript"> JavaScript</label>
+                    <label><input type="checkbox" name="languages[]" value="PHP"> PHP</label>
+                    <label><input type="checkbox" name="languages[]" value="C#"> C#</label>
+                    <label><input type="checkbox" name="languages[]" value="Kotlin"> Kotlin</label>
+                </div>
+            </fieldset>
+            <!-- libraries checkboxes-->
+            <fieldset >
+                <legend>Libraries/Frameworks</legend>
+                <div class="ds_chbx_SuperBox">
+                    <label><input type="checkbox" name="frameworks[]" value="React"> React</label>
+                    <label><input type="checkbox" name="frameworks[]" value="Angular"> Angular</label>
+                    <label><input type="checkbox" name="frameworks[]" value="Vue.js"> Vue.js</label>
+                </div>
+            </fieldset>
+            <!-- devops checkboxes-->
+            <fieldset >
+                <legend>Dev Ops</legend>
+                <div class="ds_chbx_SuperBox">
+                    <label><input type="checkbox" name="devops[]" value="GIT"> GIT</label>
+                    <label><input type="checkbox" name="devops[]" value="Gulp"> Gulp</label>
+                    <label><input type="checkbox" name="devops[]" value="Docker"> Docker</label>
+                </div>
+            </fieldset>
+        <!-- experience header -->
+         <h3>  <span class="ball">3</span>Experience</h3>
+             <!-- experience checkboxes-->
+        <fieldset >
+                <div class="ds_radio_SuperBox">
+                    <label><input type="radio" name="experience" value="Beginning"> Beginner</label>
+                    <label><input type="radio" name="experience" value="Intermediate"> Intermediate</label>
+                    <label><input type="radio" name="experience" value="Advanced"> Advanced</label>
+                </div>
+            </fieldset>
+
+        <!-- Other -->
+        <h3>  <span class="ball">4</span>Other</h3>
+            <!-- dropdown box -->
+
+           
+            <fieldset class="otherSet">
+                <label  class="bold" for="hear">How did you hear about us?</label>
+                <select class="other" id="hear" name="country">
+                    <option class="bold" value="">Please Select…</option>
+                    <optgroup label="Person">
+                        <option>Friend</option>
+                        <option>Family</option>
+                        <option>Colleague</option>
+                    </optgroup>
+                    <optgroup label="Media">
+                        <option>Internet</option>
+                        <option>Radio</option>
+                        <option>TV</option>
+                        <option>Newspaper</option>
+                    </optgroup>
+                    <optgroup label="Other">
+                        <option>Magic!</option>
+                        <option>Other...</option>
+                    </optgroup> 
+                </select>
+              
+            </fieldset>
+             <!-- text box -->
+            <fieldset class="otherSet">
+                <label for="allComments">Comments</label>
+                <textarea class="other" id="allComments" rows="6"></textarea>
+            <fieldset id="extraDetails">
+                <label id="extraLabel" for="details">Please provide additional details</label>
+                <textarea id="details" name="details" rows="4"></textarea>
+            </fieldset>
+            </fieldset>
+        <!-- magic -->
+
+        <!-- submit button -->
+            <input type="submit" value="Submit" />
+        <!-- clear Form -->
+            <input type="reset" value="Clear Form" />
+     
+
+
+
+
+ 
+</form>
+    <!-- copyright -->
+    <footer>
+     <p class="copyright">&copy; Ethan Yeung, 2025</p>
+    </footer>
+</body>
+
+<script>
+document.getElementById("hear").addEventListener("change", function () {
+    const extra = document.getElementById("extraDetails");
+    const extraLabel = document.getElementById("extraLabel");
+
+    if (this.value === "Magic!" || this.value === "Other...") {
+        extra.style.display = "block";
+        extraLabel.style.display="block";
+    } else {
+        extra.style.display = "none";
+        extraLabel.style.display = "none";
+    }
+});
+</script>
+</html>
+
