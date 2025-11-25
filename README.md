@@ -1,0 +1,1 @@
+Bare sunset. Dim brown, fading light. 
