@@ -1,0 +1,3 @@
+I ordered the AI to generate the color schemes for me with one linear and one radial gradient, following the suggestion for theme and atmosphere. I then manually tweaked down the color contrast to be visible yet sufficiently subdued for human consumption. Also asked it to generate a variety of candidate other visual modifications, which I ultimately decided against inclusion. 
+
+Overall effect of AI on this project highly minimal. Could have done the same with manual tweaking of color palette from the beginning.

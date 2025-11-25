@@ -31,8 +31,18 @@ body {
   height: 100%;
   margin: 0;
   background:
-    linear-gradient(to bottom, #ffbd98 40%, #f9341b 100%);
-}
+    radial-gradient(
+      900px 600px at 50% 20%,
+      rgba(60, 90, 160, 0.25) 0%,
+      rgba(10, 20, 50, 0.15) 40%,
+      rgba(0, 0, 15, 0) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      #3e456b 0%,
+      #000000 100%
+    );
+  }
 
  
 h3 {
